@@ -282,13 +282,13 @@ function onMouseOut(e) {
  *      If a piece is being dragged while moving the mouse, its position is refreshed.
  *      If the movement is over a column, the arrow pointing to it is highlighted
  */
-function onMouseMove(e) {
+function onMouseMove(e, offsetX, offsetY) {
     if ( !isDragging ) { return; }
     e.preventDefault();
     e.stopPropagation();
     if ( isDragging && selectedPiece != null ) {
-        selectedPiece.setPosition(e.offsetX, e.offsetY);
-        selectedColumn = board.findSelectedColumn(e.offsetX, e.offsetY);
+        (offsetX && offsetY) ? selectedPiece.setPosition(offsetX, offsetY) : selectedPiece.setPosition(e.offsetX, e.offsetY);
+        selectedColumn = (offsetX && offsetY) ? board.findSelectedColumn(offsetX, offsetY) : board.findSelectedColumn(e.offsetX, e.offsetY);
         if ( selectedColumn != null ) {
             if ( board.isFull(selectedColumn) ) {
                 showMsgInGameBox("No more place here..!", 500);
@@ -303,14 +303,15 @@ function onMouseMove(e) {
 /**
  * Function onMouseDown: If it is the turn of a player, and the player is selecting a piece, saves it and shows it highlighted
  */
-function onMouseDown(e) {
+function onMouseDown(e, offsetX, offsetY) {
     e.preventDefault();
     isDragging = true;
     if ( selectedPiece != null ) {
         selectedPiece.setHighlight(false);
         selectedPiece = null;
     }
-    let clickedPiece = board.findSelectedElement(e.offsetX, e.offsetY);
+    //Distinct touch / mouse events
+    let clickedPiece = ( offsetX && offsetY ) ? board.findSelectedElement(offsetX, offsetY) : board.findSelectedElement(e.offsetX, e.offsetY);
     if ( clickedPiece != null && clickedPiece.getPlayer() === current_player ) {
         selectedPiece_initialPosition = clickedPiece.getPosition();
         if ( !clickedPiece.getIsPlayed() ) {
@@ -335,11 +336,40 @@ function onMouseDown(e) {
     }
 }
 
+/**
+ * Functions getOffsetX and getOffsetY:
+ *      Allows to calculate the equivalent of mouse events offsets in touch events
+ * @param e
+ * @returns {number}
+ */
+function getOffsetX(e) {
+    const rect = e.target.getBoundingClientRect();
+    return (e.touches[0].clientX - window.scrollX - rect.left);
+}
+
+function getOffsetY(e) {
+    const rect = e.target.getBoundingClientRect();
+    return (e.touches[0].clientY - window.scrollY - rect.top);
+}
+
 function setGameEvents() {
     CANVAS.addEventListener("mousedown",  (e) => {onMouseDown(e);});
     CANVAS.addEventListener("mouseup",  (e) => {onMouseUp(e);});
     CANVAS.addEventListener("mousemove",  (e) => {onMouseMove(e);});
     CANVAS.addEventListener("mouseout",  (e) => {onMouseOut(e);});
+
+    CANVAS.addEventListener("touchstart",  (e) => {
+            onMouseDown(e, getOffsetX(e), getOffsetY(e));}, { passive: false}
+    );
+    CANVAS.addEventListener("touchend",  (e) => {
+            onMouseUp(e);}, { passive: false}
+    );
+    CANVAS.addEventListener("touchmove",  (e) => {
+        onMouseMove(e, getOffsetX(e), getOffsetY(e));}, { passive: false}
+    );
+    CANVAS.addEventListener("touchcancel",  (e) => {
+        onMouseOut(e);}, { passive: false}
+    );
 }
 /*------------------------------------------------------------------------------------------------*/
 
