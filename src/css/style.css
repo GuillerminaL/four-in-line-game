@@ -1,0 +1,1145 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Nunito';
+    background-color: #222222;
+}
+
+header {
+    position: sticky;
+    font-size: .7em;
+    color: #636363;
+    margin: 1em 2em;
+    height: 100px;
+    width: 100vw;
+    top: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/*---------------- Progress bar -----------------------------*/
+
+.inactive {
+    background-color: grey;
+    transition: all .5s;
+}
+
+/*--------------------------- Body -------------------------*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 65vh;
+}
+
+body section {
+    width: 100vw;
+    overflow: hidden;
+}
+
+body section > div {
+    width: 100%;
+    position: relative;
+    /* max-height: 41.5em; */
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/*----------------------------- Buttons -------------------------------------------------*/
+.btns-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.btns-container div.price p {
+    text-align: center;
+}
+
+button img {
+    height: 1rem;
+    padding-right: .7rem;
+}
+
+.continueBtn, .playSettingsBtn {
+    height: 2.4rem;
+    min-width: 10em;
+    border-radius: 3px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .08rem;
+}
+
+.continueBtn, .playSettingsBtn {
+    background-color: #17E8CF;
+    color:#120525;
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+}
+
+.continueBtn:hover, .playSettingsBtn:hover, button#restart-btn:hover, button#close-btn:hover,
+button#help-btn:hover,  button#done-btn:hover,  button#input-close-btn:hover {
+    filter: drop-shadow(-5px 7px 14px rgba(0, 0, 0, 0.45));
+    cursor: pointer;
+}
+
+.continueBtn:active, .playSettingsBtn:active {
+    background-color:#120525;
+    color: #17E8CF;
+}
+
+.small-loading {
+    width: 1.5em;
+    height: .5em;
+}
+
+.loading-img-div {
+    font-size: .9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.cartBtn {
+    background-color:#261340;
+    color: #17E8CF;
+    font-weight: 500;
+    font-size: .8em;
+    margin-top: .2em;
+    display: flex;
+}
+
+.cartBtn.display-none {
+    display: none;
+}
+
+.cartBtn:active {
+    background-color: #17E8CF;
+    color: #120525;
+}
+
+.cartBtn:hover {
+    background-color: #120525;
+}
+
+.buyBtn:hover {
+    background-color: #17E8CF;
+    color:#533A76;
+    transition: all 0.5s ease;
+}
+
+.buyBtn:before {
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 100%;
+    background-color: #120525;;
+    background: rgba(5, 2, 4, 0.1);
+    transition: all 1s ease;
+}
+
+.buyBtn:hover:before {
+    width: 100%;
+}
+
+
+/*------------------------------ About. html---------------------------------------------------*/
+
+.about {
+    align-items: center;
+    justify-content: center;
+}
+
+.about div{
+    padding: 1em;
+}
+
+/*------------------------------ Cuatro en línea ----------------------------------------------*/
+
+/*------------------------------------*/
+.game-container-background {
+    width: 100%;
+    min-height: 70%;
+    background-color: rgba(38, 19, 64, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+}
+
+/*----------- Share Pop up -------*/
+div#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background-color: #261340;
+    display: none;
+    z-index: 99;
+}
+
+div#share-pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+    width: 34em;
+    height: 19em;
+    background-color: #D9D9D9;
+}
+
+div#share-pop-up.visible,
+div#share-pop-up.visible ~ div#overlay, .buy-card-overlay.visible, .keep-playing-card.visible {
+    display: flex;
+}
+
+div#share-pop-up > div {
+    width: 80%;
+}
+
+button#close-pop-up {
+    background-color: unset;
+}
+
+button#close-pop-up:hover {
+    transform: scale(120%);
+    transition: all .3s ease-in-out;
+}
+
+div#share-pop-up > div:nth-child(1) {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900;
+    font-size: 1.1em;
+    letter-spacing: 0.19em;
+    color: #120525;
+}
+
+div#share-pop-up > div:nth-child(2) {
+    justify-content: space-around;
+}
+
+div.link-copy {
+    text-align: center;
+    justify-content: center;
+}
+
+.link-copy input {
+    height: 29.579999923706055px;
+    width: 263px;
+    border-radius: 3px;
+    padding-left: 1em;
+    color: #120525;
+    margin-right: -2px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 10%;
+}
+
+.link-copy button {
+    margin-left: -2px;
+    width: 111.11px;
+    height: 30px;
+    background-color: #120525;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-radius: 3px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.link-copy button:hover {
+    background-color: #261340;
+    transition: all .5s ease;
+}
+
+.link-copy button:active {
+    background-color: #261340;
+    transition: all .5s ease;
+}
+
+/*-----------------    Tercera entrega --------------------------------*/
+
+
+
+/*--------------------------------------------------------*/
+
+div#game-settings {
+    margin: 1.5em 3em;
+    letter-spacing: .1em;
+    color: #636363;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+div#game-settings form {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+div#game-settings h2 {
+    padding-bottom: .5em;
+    font-size: 1.6em;
+    font-weight: bolder;
+}
+
+div#game-settings form section {
+    margin: 1em;
+    width: 25em;
+}
+
+div#game-settings form section.board-settings {
+    margin-top: 0;
+    flex-wrap: wrap;
+}
+
+div#game-settings form section.board-settings h3 {
+    font-weight: 0.8;
+}
+
+div#game-settings form section.board-settings span {
+    font-style: italic;
+}
+
+.board-settings button {
+    height: 2em;
+    width: 15em;
+    border-radius: 7px;
+    margin: .5em;
+}
+
+.board-settings button .inactive {
+    background-color: #636363;
+}
+
+.board-settings button:hover {
+    background-color: #17E8CF;
+}
+
+div#game-settings div.settings-confirm {
+    display: flex;
+}
+
+.piece-settings-btn-active {
+    border: 3px solid yellow;
+    background-color: #17E8CF;
+}
+
+/*----   Game controls  ----*/
+button#help-btn, button#restart-btn, button#close-btn, button#done-btn, button#input-close-btn {
+    height: 2.5em;
+    width: 2.5em;
+    margin: 0.7em;
+}
+
+button#help-btn, button#restart-btn, button#close-btn, button#done-btn, button#input-close-btn {
+    border-radius: 50%;
+}
+
+button#done-btn, button#input-close-btn {
+    height: 1.7em;
+    width: 1.7em;
+    margin: 0.5em;
+}
+
+div#game-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#game-controls-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div#game-controls-btns div :hover {
+    background-color:  #17E8CF;
+    transition: all .5s;
+}
+
+/*---- Game canvas  -----*/
+div#game-canvas {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*-------- Timer -----------*/
+
+span.material-icons {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+}
+
+.time-input-box {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.timer {
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    padding: 10px 13px;
+    color: lightgray;
+}
+
+.timer__part {
+    font-size: 26px;
+}
+
+.timer__btn {
+    width: 2.5em;
+    height: 2.5em;
+    margin-left: 16px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background: #8208e6;
+    cursor: pointer;
+}
+
+.timer__btn--start {
+    background: #00b84c;
+}
+
+.timer__btn--stop {
+    background: #ff0256;
+}
+
+/*--- game msg box ----*/
+
+div#game-msg-div {
+    display: flex;
+    max-height: 2em;
+}
+
+div#game-modal {
+    display: none;
+    font-size: 1.2em;
+}
+
+div#game-msg-div, div#game-modal {
+    margin: 1em;
+    width: 60%;
+    min-width: 20em;
+    min-height: 2em;
+    flex-wrap: wrap;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+    border-radius: 30px;
+    letter-spacing: .1em;
+    background: rgba(80, 76, 76, 0.8);
+}
+
+div#game-modal.active {
+    display: flex;
+    background: rgba(80, 76, 76, 0.8);
+    padding: 1em;
+    position: absolute;
+    z-index: 1;
+    min-height: 3em;
+    color:#FFFFFF;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+span.game-box {
+    text-transform: capitalize;
+}
+
+.danger {
+    color: red;
+    font-weight: 600;
+}
+
+div.board {
+    position: relative;
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+
+div.game-bkg-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -10;
+    box-sizing: border-box;
+    position: relative;
+}
+
+div.game-bkg-images div {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.game-bkg-images img{
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+div.game-bkg-images img:not(#center-bkg-img) {
+    width: 6em;
+    margin: 1em;
+}
+
+div.game-bkg-images img#center-bkg-img {
+    display: none;
+}
+
+/*--------*/
+
+div.middle-wrapper {
+    width: 80%;
+}
+
+div.game-description, div.help {
+    margin: 0 5em;
+}
+
+div.game-description a {
+    text-decoration: underline;
+}
+
+div.game-description a:hover {
+    cursor: pointer;
+}
+
+div.game-header h1 {
+    font-size: 1.5em;
+}
+
+div.game-header {
+    text-align: center;
+    margin: 2em;
+}
+
+div.game-icons div {
+    width: 9em;
+}
+
+div.features-carousel {
+    margin: 5em 0em;
+}
+
+div.help > div {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin-bottom: 4em;
+}
+
+div.help h3 {
+    font-size: 1.5em;
+    color: #f21d6b;
+    margin: 2em 0em;
+}
+
+div.help h4 {
+    color:#FCACC1;
+    margin: 1em 0em;
+}
+
+div.help ul li {
+    list-style-type: disc;
+    margin-left: 2em;
+}
+
+
+/*-----*/
+
+.display-none {
+    display: none;
+}
+
+.comunidad{
+    width: 60vw;
+    margin: 0 auto;
+}
+
+section.comunidad h3 {
+    color: #f21d6b;
+    font-size: 1.5em;
+    margin: 2em 0em;
+}
+
+.cajaComentario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(217, 217, 217, 1);
+    height: 80px;
+    margin-bottom: 20px;
+    padding: 0em 2em;
+}
+
+.cajaComentario > div {
+    padding: 1.5em;
+    width: 80%;
+}
+
+.cajaComentario input {
+    background-color: unset;
+    width: 100%;
+    border-bottom: solid grey 1px;
+    padding: 1em 0em;
+}
+
+.cajaComentario input:active {
+    border-bottom:#120525 solid 2px;
+}
+
+.cajaComentario > div:nth-child(1) {
+    background-color: #17E8CF;
+    width: 15%;
+}
+.comment-btns {
+    visibility: hidden;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.comment-btns.visible {
+    visibility: visible;
+}
+
+.comment-btns input {
+    padding: 0;
+    margin: 0em .5em;
+}
+
+.comment-btns input:nth-child(2) {
+    background-color: #120525;
+}
+
+.comment-btns input:hover {
+    background-color: #120525;
+}
+
+.comment-btns input:nth-child(2):hover {
+    background-color:#533A76;
+}
+
+.comunidad input:not(#comment-input) {
+    text-transform: capitalize;
+}
+
+.comentarios {
+    background:rgba(217, 217, 217, .7);
+    color: #120525;
+    max-height: none;
+    margin-bottom: 50px;
+}
+
+.comentario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+
+.comentario > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 10px;
+    margin-right: 2em;
+}
+
+.comment{
+    width:90%;
+}
+
+.like-dislike{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5em;
+}
+
+.like-dislike > div{
+    display: flex;
+    margin-right: 10px;
+}
+
+.comentario > input, .cajaComentario .comentar{
+    height: 24px;
+    width: 90px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: rgba(83, 58, 118, 1);
+    color:white;
+}
+
+.cajaComentario > iconify-icon{
+    margin: 0 10px;
+}
+
+
+/*----------------------- containers ----------------------------*/
+
+section.descripcion {
+    width: 75vw;
+}
+
+div#game-description, div#sprite-btn-animation {
+    width: 50%;
+    margin: 1em;
+}
+
+div#game-description {
+    flex-direction: column;
+}
+
+div#game-description h1 {
+    padding: 20px;
+    letter-spacing: 3px;
+    font-size: 2em;
+}
+
+div#sprite-btn-animation div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+div#sprite-btn-animation div:nth-child(2) > div {
+    width: 232px;
+}
+
+div#reserva-btn-div, div#sprite1-container {
+    animation: swing 3s infinite 2s;
+}
+
+div#like-btn-container {
+    animation: swing 3s infinite .28s;
+    margin: 20px;
+}
+
+button.like {
+    animation: pinkPulse 3s infinite 3s;
+}
+
+button.reserva {
+    animation: pulse 3s infinite 2s;
+}
+
+button.like:hover {
+    animation: none;
+    cursor: pointer;
+}
+
+button.reserva:hover {
+    animation: none;
+    cursor: pointer;
+    background-color: #17E8CF;
+    color:  #120525;
+}
+
+button.reserva:active, button.like:active {
+    filter: drop-shadow(-5px 7px 14px rgba(0, 0, 0, 0.45));
+}
+
+/*------------------------ Btns animation -----------------------*/
+@keyframes swing {
+    0% { transform: rotateZ(0deg) translate(0,0);}
+    20% { transform: rotateZ(20deg) translate(15px,-5px);}
+    40% { transform: rotateZ(-10deg) translate(-15px,2px);}
+    60% { transform: rotateZ(11deg) translate(10px,-1px);}
+    80% { transform: rotateZ(0deg) translate(0,0);}
+}
+
+@keyframes fall {
+    0% { transform: translateY(0px);}
+    50% {  transform: translateY(50px);}
+    100% { transform: translateY(0px);}
+}
+
+@keyframes pulse {
+    0% { background-color: #120525; color: #17E8CF;}
+    93% { background-color: #120525; color: #17E8CF;}
+    100% { background-color: #17E8CF; color:  #120525;}
+}
+
+@keyframes pinkPulse {
+    0% { background-color: #120525; }
+    93% { background-color: #120525; }
+    100% { background-color:#F21D6B}
+}
+
+
+/*----------------------------------------- -----------------------------------------*/
+/*---------------------------------  Media -----------------------------------------*/
+/*----------------------------------------- -----------------------------------------*/
+/*----------------------------------------- -----------------------------------------*/
+
+@media (min-width: 600px) {
+
+    /*----*/
+
+    div.container div.game-container {
+        min-height: 320px;
+    }
+
+    .buyBtn, .cartBtn, .continueBtn, .playSettingsBtn {
+        height: 3rem;
+        /* min-width: 16em; */
+        margin: 1rem;
+    }
+
+    div.game-bkg-images img:not(#center-bkg-img) {
+        display: block;
+        width: 12em;
+        margin: 1em;
+    }
+
+    div.game-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2em 0em;
+    }
+
+    div.game-header h1 {
+        font-size: 1.8em;
+        font-weight: 600;
+    }
+
+    div.game-description h3 {
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+
+    /*---------- carousel nav --------------*/
+
+    div.carousel div.carousel-nav,  section.personajes div.carousel-nav {
+        display: flex;
+        width: inherit;
+        height: 80%;
+        justify-content: space-between;
+        position: absolute;
+        align-content: center;
+    }
+
+    section.personajes div.carousel-nav {
+        height: 110%;
+    }
+
+    div#game-images-carousel div.carousel-nav {
+        height: 50%;
+    }
+
+    div.carousel div.carousel-nav > div,  section.personajes div.carousel-nav > div {
+        height: 100%;
+        background-color: #120525;
+        opacity: .7;
+        font-size: 4em;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+    }
+
+    div.carousel-nav div.back-btn {
+        visibility: hidden;
+    }
+
+    div.carousel-nav div.back-btn.visible {
+        visibility: visible;
+    }
+
+    div.carousel-nav div.forward-btn.hidden {
+        visibility: hidden;
+    }
+
+    div.carousel div.content {
+        position: relative;
+    }
+
+    /*--- Personajes carousel nav ----*/
+
+    div#game-images-carousel div.carousel-nav > div {
+        height: 80%;
+    }
+
+    section.personajes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section.personajes div.carousel-nav > div, div#game-images-carousel div.carousel-nav > div {
+        background-color: unset;
+    }
+
+    section.personajes div.carousel-nav > div p, div#game-images-carousel div.carousel-nav > div p {
+        text-align: center;
+        background-color:#533A76;
+        border-radius: 100%;
+        width: 1.5em;
+        height: 1.5em;
+        left: 0;
+    }
+
+    div#game-images-carousel div.carousel-nav > div p {
+        margin: 0 -1em;
+    }
+
+    section.personajes {
+        margin: 50px auto;
+        width: 90vw;
+    }
+
+    section div.small.carousel img:not(.buy-card-overlay img, .keep-playing-card img) {
+        height: 10em;
+    }
+
+    section div.carousel div.card h5 {
+        font-size: 1em;
+    }
+
+    /*--------------- Game images carousel -------------*/
+    div#game-images-carousel img {
+        width: 550px;
+    }
+
+    div#game-images-carousel div.content div.card div {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: .2em;
+        margin:.2em;
+    }
+
+    /*--------------- Animated cards carousel -------------*/
+
+    div.front-card > div {
+        text-align: center;
+    }
+
+    div.front-card, div.back-card {
+        background-color: #120525;
+        width: 260px;
+        height: 300px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+        margin: 2em;
+        font-size: .8em;
+    }
+
+    div.feature-card {
+        vertical-align: top;
+        width: 50%;
+        top: 0px;
+        left: 0px;
+        -webkit-perspective: 900px;
+        perspective: 900px;
+    }
+
+    div.feature-card div.front-card {
+        top: 0px;
+        left: 0px;
+
+        -webkit-transform: rotateX(0) rotateY(0);
+        transform: rotateX(0) rotateY(0);
+
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        -webkit-transition: all 1.5s ease-in-out;
+        transition: all 1.5s ease-in-out;
+    }
+
+    div.feature-card.flip .front-card {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    div.feature-card.flip div.back-card {
+        -webkit-transform: rotateX(0) rotateY(0);
+        transform: rotateX(0) rotateY(0);
+    }
+
+    div.feature-card div.back-card {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        -webkit-transition: all 1.5s ease-in-out;
+        transition: all 1.5s ease-in-out;
+    }
+
+    div.feature-card div.back-card img {
+        padding: 5px;
+        height: 100%;
+        width: 100%;
+    }
+
+    div.feature-card div.back-card img {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+    }
+
+    div.feature-card .pad {
+        padding: 0px 5px;
+    }
+
+    /*---------------------------------------------------*/
+
+    /*-------- Cards Hover Functionality ---------*/
+    .buy-card-overlay, .keep-playing-card {
+        background-color: rgba(38, 19, 64, 0.8);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        font-size: 16px;
+    }
+
+    .buy-card-overlay {
+        height: 50%;
+        width: 100%;
+        background-color: rgba(38, 19, 64, 0.8);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        top: 20%;
+    }
+
+    .keep-playing-card {
+        height: 15em;
+        width: 19em;
+    }
+
+    section div.small.carousel img:not(.buy-card-overlay img, .keep-playing-card img) {
+        height: 12rem;
+    }
+
+    .btns-container {
+        font-weight: 600;
+        letter-spacing: .1em;
+        font-size: 1.2em;
+    }
+
+    #price {
+        font-size: 1.7em;
+    }
+
+}
+
+@media only screen and (min-width:1024px) {
+
+    .upcoming-releases {
+        font-size: 1.5em;
+    }
+
+    nav.breadcrumbs {
+        margin-top: 92px;
+        padding: 1em;
+    }
+
+    section div.carousel div.content, div#game-images-carousel div.content {
+        display: flex;
+        overflow-y: auto;
+        padding: 0em 3em 0em 0em;
+    }
+
+    section div.carousel div.title {
+        font-size: 1.3em;
+        padding-left: 2.3em;
+    }
+
+    section div.carousel img:not(.buy-card-overlay img, .keep-playing-card img) {
+        width: 300px;
+        height: 450px;
+    }
+
+    section div.carousel div.card:hover, div#game-images-carousel div.card:hover {
+        background:#261340;
+        border-radius: 3px;
+        filter: drop-shadow(-5px 7px 14px rgba(0, 0, 0, 0.45));
+    }
+
+    section div.small.carousel img:not(.buy-card-overlay img, .keep-playing-card img) {
+        height: 15rem;
+    }
+
+    section div.carousel div.card h5 {
+        font-size: 1.2em;
+    }
+
+
+    div.game-bkg-images img:not(#center-bkg-img) {
+        width: 12em;
+        margin: 1em;
+    }
+
+    div.game-bkg-images img#center-bkg-img {
+        width: 20em;
+        display: flex;
+    }
+
+}
