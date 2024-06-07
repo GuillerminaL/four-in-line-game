@@ -10,7 +10,7 @@ class Piece extends Shape {
 
     createImage(fill) {
         let image = new Image();
-        image.src = "../src/images/" + fill + ".png";
+        image.src = "../images/" + fill + ".png";
         image.width = this.radious*2;
         image.height = this.radious*2;
         return image;

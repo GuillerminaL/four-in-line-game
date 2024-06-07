@@ -159,7 +159,7 @@ restartBtn.addEventListener("click", () => {
 
 const closeBtn = document.querySelector("#close-btn");
 closeBtn.addEventListener("click", () => {
-    location.href = "../src/index.html";
+    location.href = "../index.html";
     setFormBtnsEvents();
 });
 
@@ -251,7 +251,7 @@ function onMouseUp(e) {
                     setTurn(); 
                 } else {
                     let msg = `<div>
-                                        <img style="opacity: 0.8; border-radius: 100%;" src='../src/images/${winner}.png' />
+                                        <img style="opacity: 0.8; border-radius: 100%;" src='../images/${winner}.png' />
                                         <p style="text-align: center"><span class="game-box">${winner}</span> wins!</p>
                                        </div>`;
                     showMsgInModalBox(msg, 5000);
